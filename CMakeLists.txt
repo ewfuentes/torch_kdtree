@@ -113,7 +113,7 @@ endif()
 
 if (BUILD_GPU)
     include_directories(
-    ${PYTHON_INCLUDE_DIRS}
+        # ${PYTHON_INCLUDE_DIRS}
     ./pybind11/include
     )
     add_library(torch_knn SHARED
@@ -122,7 +122,7 @@ if (BUILD_GPU)
     #set_target_properties(torch_knn PROPERTIES COMPILE_DEFINITIONS GPU_AVAILABLE=1)
     add_definitions(-DGPU_AVAILABLE)
     target_link_libraries(torch_knn
-          ${PYTHON_LIBRARIES}
+         # ${PYTHON_LIBRARIES}
           cudart
           pybind11::module)
 
