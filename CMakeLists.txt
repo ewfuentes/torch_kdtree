@@ -101,7 +101,7 @@ if (BUILD_TEST AND BUILD_GPU)
                           cudart
                          ${COMMON_LINKS} )
     target_include_directories(test_kdtree PRIVATE ${EIGEN_INSTALL_DIR})
-    set_property(TARGET test_kdtree PROPERTY CUDA_ARCHITECTURES 50-real 50-virtual)
+    set_property(TARGET test_kdtree PROPERTY CUDA_ARCHITECTURES 89 120)
     add_dependencies(test_kdtree eigen)
 endif()
 
@@ -118,7 +118,7 @@ if (BUILD_GPU)
     )
     add_library(torch_knn SHARED
                 ${INTERFACE_SOURCE_LIST})
-    set_property(TARGET torch_knn PROPERTY CUDA_ARCHITECTURES 50-real 50-virtual)
+    set_property(TARGET torch_knn PROPERTY CUDA_ARCHITECTURES 89 120)
     #set_target_properties(torch_knn PROPERTIES COMPILE_DEFINITIONS GPU_AVAILABLE=1)
     add_definitions(-DGPU_AVAILABLE)
     target_link_libraries(torch_knn
